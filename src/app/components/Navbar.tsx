@@ -18,8 +18,8 @@ const menuLinks = [
 
 const Navbar = () => {
   return (
-    <div className="fixed mx-auto bg-[#050605] top-0 left-0 right-0">
-      <div className="flex container justify-between mx-auto py-8 text-[#89B8BD] px-4">
+    <div className="fixed mx-auto bg-[#050605] top-0 left-0 right-0 z-20">
+      <div className="flex container justify-between items-center mx-auto py-8 text-[#89B8BD] px-4">
         <div className="lg:text-5xl text-3xl">ST</div>
         <div className="">
           <ul className="flex flex-raw">
