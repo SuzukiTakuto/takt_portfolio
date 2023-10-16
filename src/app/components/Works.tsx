@@ -59,7 +59,10 @@ function Works() {
   };
 
   return (
-    <div className="text-[#89B8BD] border border-[#89B8BD] mr-4 ml-4 mb-40">
+    <div
+      id="works"
+      className="text-[#89B8BD] border border-[#89B8BD] mr-4 ml-4 mb-40"
+    >
       <div className="title lg:text-5xl text-3xl mt-3 flex justify-center font-bold">
         <h1>works</h1>
       </div>
@@ -71,7 +74,7 @@ function Works() {
                 key={index}
                 onClick={() => {
                   setWorkItem(workItem);
-                  setIsItemClicked(true);
+                  if (window.innerWidth < 768) setIsItemClicked(true);
                 }}
               >
                 <WorksItem

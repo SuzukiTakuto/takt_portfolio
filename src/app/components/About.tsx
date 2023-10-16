@@ -17,7 +17,10 @@ const iconPath = [
 
 const About = () => {
   return (
-    <div className="text-[#89B8BD] border border-[#89B8BD] mr-4 ml-4 mb-40">
+    <div
+      id="about"
+      className="text-[#89B8BD] border border-[#89B8BD] mr-4 ml-4 mb-40"
+    >
       <div className="title lg:text-5xl text-3xl mt-3 flex justify-center font-bold">
         <h1>about me</h1>
       </div>
