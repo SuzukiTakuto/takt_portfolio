@@ -44,14 +44,18 @@ const WorkDetails = ({
           app url
           <br />
           <span className="font-normal block pt-1">
-            <Link href={appUrl}>{appUrl}</Link>
+            <Link href={appUrl} target="_blank">
+              {appUrl}
+            </Link>
           </span>
         </h3>
         <h3 className="pt-3 border-b-2 border-[#89B8BD] font-bold">
           git hub
           <br />
           <span className="font-normal block pt-1">
-            <Link href={gitHubUrl}>{gitHubUrl}</Link>
+            <Link href={gitHubUrl} target="_blank">
+              {gitHubUrl}
+            </Link>
           </span>
         </h3>
         <h3 className="pt-3 border-b-2 border-[#89B8BD] font-bold">
