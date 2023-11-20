@@ -10,6 +10,7 @@ const workItems = [
     appName: "ポートフォリオサイト",
     appImg: "/images/works-imgs/works-portfolio.png",
     description: "このサイトです",
+    style: "個人",
     appUrl: "http://localhost:3000/",
     gitHubUrl: "https://github.com/SuzukiTakuto/takt_portfolio",
     technologyStack: [
@@ -24,6 +25,7 @@ const workItems = [
     appImg: "/images/works-imgs/works-nanitabe.png",
     description:
       "現在地、または指定した駅周辺にある飲食店からランダムに1店舗選んでくれるアプリです。",
+    style: "個人",
     appUrl: "https://apps.apple.com/jp/app/%E4%BD%95%E9%A3%9F/id6461529557",
     gitHubUrl: "https://github.com/SuzukiTakuto/Nanitabe",
     technologyStack: [
@@ -33,18 +35,26 @@ const workItems = [
   },
   {
     id: 3,
-    appName: "???",
-    appImg: "/images/works-imgs/no-image.png",
-    description: "???",
-    appUrl: "???",
-    gitHubUrl: "???",
-    technologyStack: [],
+    appName: "密話廊",
+    appImg: "/images/works-imgs/works-jphacks2023.png",
+    achievement: "「JPHacks 2023 Award Day」進出",
+    description:
+      "マーダーミステリーのシナリオ制作をAIによりサポートします。また、配信されているシナリオをオンライで遊ぶことも可能です。",
+    style: "チーム",
+    appUrl: "配信予定",
+    gitHubUrl:
+      "https://www.notion.so/9816def899e94c7490004f285ab2f90a?pvs=4#c50ed1dd19c74c8eb44ea6de2ad7e7fe",
+    technologyStack: [
+      "images/skill-icons/react-native.svg",
+      "images/skill-icons/ts.svg",
+    ],
   },
   {
     id: 4,
     appName: "???",
     appImg: "/images/works-imgs/no-image.png",
     description: "???",
+    style: "???",
     appUrl: "???",
     gitHubUrl: "???",
     technologyStack: [],
@@ -64,6 +74,8 @@ function Works() {
     setIsItemClicked(false);
   };
 
+  console.log(window.innerWidth < 768 && isItemClicked);
+
   return (
     <div ref={ref}>
       {inView && (
@@ -76,7 +88,7 @@ function Works() {
           </div>
           <div className="flex justify-center lg:px-24 md:px-12 py-5">
             <div className="md:flex md:justify-between relative">
-              <div className="md:flex md:flex-wrap md:justify-between md:mr-8 h-[473px] max-h-full overflow-scroll">
+              <div className="md:flex md:flex-wrap md:justify-between md:mr-8 h-[473px] max-h-full overflow-scroll hidden-scrollbar">
                 {workItems.map((workItem, index) => (
                   <div
                     key={index}
@@ -92,24 +104,29 @@ function Works() {
                   </div>
                 ))}
               </div>
-              <div
-                className={
-                  isItemClicked
-                    ? "block absolute top-0 z-10 md:hidden"
-                    : "hidden md:block"
-                }
-              >
-                <WorkDetails
-                  id={workItem.id}
-                  appName={workItem.appName}
-                  appImg={workItem.appImg}
-                  description={workItem.description}
-                  appUrl={workItem.appUrl}
-                  gitHubUrl={workItem.gitHubUrl}
-                  technologyStack={workItem.technologyStack}
-                  onClick={onClick}
-                />
-              </div>
+              {(window.innerWidth < 768 && isItemClicked) ||
+              window.innerWidth >= 768 ? (
+                <div
+                  className={
+                    window.innerWidth < 768 ? "absolute top-0 z-10" : ""
+                  }
+                >
+                  <WorkDetails
+                    id={workItem.id}
+                    appName={workItem.appName}
+                    appImg={workItem.appImg}
+                    achievement={workItem.achievement}
+                    description={workItem.description}
+                    style={workItem.style}
+                    appUrl={workItem.appUrl}
+                    gitHubUrl={workItem.gitHubUrl}
+                    technologyStack={workItem.technologyStack}
+                    onClick={onClick}
+                  />
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
         </div>
