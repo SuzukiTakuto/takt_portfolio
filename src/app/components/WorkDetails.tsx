@@ -32,18 +32,18 @@ const WorkDetails = ({
   return (
     <AnimatePresence>
       <motion.div
-        className="border bg-[#050605] border-[#89B8BD] w-[320px] h-[473px] max-h-full overflow-scroll flex justify-center relative hidden-scrollbar"
+        className="border bg-[#050605] border-[#89B8BD] w-[320px] h-[473px] max-h-full overflow-scroll flex justify-center relative"
         key="modal"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-3 right-3 float-right">
           <button onClick={onClick}>
             <XMarkIcon className="w-5 h-5 md:hidden" />
           </button>
         </div>
-        <div className="w-5/6">
+        <div className="w-5/6 overflow-y-auto">
           <div className="flex justify-center pt-5">
             <Image src={appImg} alt="work-img" width={289} height={175} />
           </div>
@@ -64,7 +64,7 @@ const WorkDetails = ({
             <br />
             <span className="font-normal block pt-1">
               <Link href={appUrl} target="_blank">
-                {appUrl}
+                ここをクリック
               </Link>
             </span>
           </h3>
@@ -73,7 +73,7 @@ const WorkDetails = ({
             <br />
             <span className="font-normal block pt-1">
               <Link href={gitHubUrl} target="_blank">
-                {gitHubUrl}
+                git hubへ移動
               </Link>
             </span>
           </h3>
