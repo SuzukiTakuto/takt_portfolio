@@ -11,7 +11,7 @@ const workItems = [
     appImg: "/images/works-imgs/works-portfolio.png",
     description: "このサイトです",
     style: "個人",
-    appUrl: "http://localhost:3000/",
+    appUrl: "https://takt-portfolio.vercel.app/",
     gitHubUrl: "https://github.com/SuzukiTakuto/takt_portfolio",
     technologyStack: [
       "images/skill-icons/next.svg",
