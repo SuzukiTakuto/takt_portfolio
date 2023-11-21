@@ -32,7 +32,7 @@ const WorkDetails = ({
   return (
     <AnimatePresence>
       <motion.div
-        className="border bg-[#050605] border-[#89B8BD] w-[320px] h-[473px] max-h-full overflow-scroll flex justify-center relative"
+        className="border bg-[#050605] border-[#89B8BD] w-[320px] h-[473px] max-h-full overflow-scroll hidden-scrollbar flex justify-center relative"
         key="modal"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -43,7 +43,7 @@ const WorkDetails = ({
             <XMarkIcon className="w-5 h-5 md:hidden" />
           </button>
         </div>
-        <div className="w-5/6 overflow-y-auto">
+        <div className="w-5/6 overflow-y-auto hidden-scrollbar">
           <div className="flex justify-center pt-5">
             <Image src={appImg} alt="work-img" width={289} height={175} />
           </div>
