@@ -11,6 +11,7 @@ type WorkDetailsProps = {
   achievement?: string;
   description: string;
   style: string;
+  isReleased: boolean;
   appUrl: string;
   gitHubUrl: string;
   technologyStack?: string[];
@@ -24,6 +25,7 @@ const WorkDetails = ({
   achievement,
   description,
   style,
+  isReleased,
   appUrl,
   gitHubUrl,
   technologyStack,
@@ -63,9 +65,13 @@ const WorkDetails = ({
             app url
             <br />
             <span className="font-normal block pt-1">
-              <Link href={appUrl} target="_blank">
-                ここをクリック
-              </Link>
+              {isReleased ? (
+                <Link href={appUrl} target="_blank">
+                  appへ移動
+                </Link>
+              ) : (
+                appUrl
+              )}
             </span>
           </h3>
           <h3 className="pt-3 border-b-2 border-[#89B8BD] font-bold">

@@ -11,6 +11,7 @@ const workItems = [
     appImg: "/images/works-imgs/works-portfolio.png",
     description: "このサイトです",
     style: "個人",
+    isReleased: true,
     appUrl: "https://takt-portfolio.vercel.app/",
     gitHubUrl: "https://github.com/SuzukiTakuto/takt_portfolio",
     technologyStack: [
@@ -26,6 +27,7 @@ const workItems = [
     description:
       "現在地、または指定した駅周辺にある飲食店からランダムに1店舗選んでくれるアプリです。",
     style: "個人",
+    isReleased: true,
     appUrl: "https://apps.apple.com/jp/app/%E4%BD%95%E9%A3%9F/id6461529557",
     gitHubUrl: "https://github.com/SuzukiTakuto/Nanitabe",
     technologyStack: [
@@ -41,6 +43,7 @@ const workItems = [
     description:
       "マーダーミステリーのシナリオ制作をAIによりサポートします。また、配信されているシナリオをオンライで遊ぶことも可能です。",
     style: "チーム",
+    isReleased: false,
     appUrl: "配信予定",
     gitHubUrl:
       "https://www.notion.so/9816def899e94c7490004f285ab2f90a?pvs=4#c50ed1dd19c74c8eb44ea6de2ad7e7fe",
@@ -48,16 +51,6 @@ const workItems = [
       "images/skill-icons/react-native.svg",
       "images/skill-icons/ts.svg",
     ],
-  },
-  {
-    id: 4,
-    appName: "???",
-    appImg: "/images/works-imgs/no-image.png",
-    description: "???",
-    style: "???",
-    appUrl: "???",
-    gitHubUrl: "???",
-    technologyStack: [],
   },
 ];
 
@@ -118,6 +111,7 @@ function Works() {
                     achievement={workItem.achievement}
                     description={workItem.description}
                     style={workItem.style}
+                    isReleased={workItem.isReleased}
                     appUrl={workItem.appUrl}
                     gitHubUrl={workItem.gitHubUrl}
                     technologyStack={workItem.technologyStack}
