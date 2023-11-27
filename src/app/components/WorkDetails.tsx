@@ -100,7 +100,7 @@ const WorkDetails = ({
             <div className="flex flex-wrap items-center gap-x-8 pb-5">
               {technologyStack?.map((stack, index) => (
                 <div key={index} className="py-1">
-                  <Image src={stack} alt="icon" width={30} height={30} />
+                  <Image src={stack} alt="icon" width={50} height={50} />
                 </div>
               ))}
             </div>
