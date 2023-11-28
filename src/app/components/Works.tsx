@@ -45,8 +45,7 @@ const workItems = [
     style: "チーム",
     isReleased: false,
     appUrl: "配信予定",
-    gitHubUrl:
-      "https://www.notion.so/9816def899e94c7490004f285ab2f90a?pvs=4#c50ed1dd19c74c8eb44ea6de2ad7e7fe",
+    gitHubUrl: "https://github.com/jphacks/TK_2301",
     technologyStack: [
       "images/skill-icons/react-native.svg",
       "images/skill-icons/ts.svg",
@@ -66,8 +65,6 @@ function Works() {
   const onClick = () => {
     setIsItemClicked(false);
   };
-
-  console.log(window.innerWidth < 768 && isItemClicked);
 
   return (
     <div ref={ref}>

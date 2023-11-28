@@ -39,3 +39,12 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.st {
+  overflow: visible;
+  stroke: #89b8bd;
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  margin-bottom: 10px;
+}

@@ -72,16 +72,15 @@ const Contact = () => {
                 id="content"
                 cols={30}
                 rows={5}
+                placeholder="お問い合わせ内容"
                 className="w-full text-xs md:text-sm bg-[#1E1E1E] px-2 py-1"
                 onChange={(e) => setMsg(e.target.value)}
-              >
-                aaa
-              </textarea>
+              ></textarea>
               <div className="flex justify-center">
                 <input
                   type="submit"
                   value="send"
-                  className="block text-xs md:text-sm w-2/12 min-w-[80px] mt-5 mb-5 bg-[#89B8BD] text-[#050605] py-1"
+                  className="block text-xs md:text-sm w-2/12 min-w-[80px] mt-5 mb-5 bg-[#89B8BD] text-[#050605] py-1 cursor-pointer"
                   onClick={handleSubmit}
                 />
               </div>
