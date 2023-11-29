@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 const iconPath = [
   "images/skill-icons/html5.svg",
@@ -16,6 +17,16 @@ const iconPath = [
 ];
 
 const About = () => {
+  const [showSkillIcons, setShowSkillIcons] = useState(false);
+  useEffect(() => {
+    const mainContentsTimer = setTimeout(() => {
+      setShowSkillIcons(true);
+    }, 1.5 * 1000);
+
+    return () => {
+      clearTimeout(mainContentsTimer);
+    };
+  }, []);
   return (
     <div
       id="about"
@@ -25,7 +36,12 @@ const About = () => {
         <h1>about me</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 lg:px-40 md:px-24 py-5">
-        <div className="col-span-4">
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="col-span-4"
+        >
           <Image
             src="/images/profile-img.png"
             alt="profile"
@@ -41,7 +57,8 @@ const About = () => {
               height={120}
             />
           </div>
-        </div>
+        </motion.div>
+
         <div className="col-span-8">
           <h1 className="lg:text-5xl text-3xl font-bold md:text-left text-center">
             鈴木啄斗
@@ -55,13 +72,25 @@ const About = () => {
           <div className="px-7 md:px-0">
             <h2 className="text-3xl font-bold">skills</h2>
 
-            <div className="flex flex-wrap items-center gap-x-8">
-              {iconPath.map((path, index) => (
-                <div key={index} className="py-5">
-                  <Image src={path} alt="icon" width={60} height={60} />
-                </div>
-              ))}
-            </div>
+            {showSkillIcons && (
+              <div className="flex flex-wrap items-center gap-x-8">
+                {iconPath.map((path, index) => (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                    }}
+                    key={index}
+                    className="py-5"
+                  >
+                    <Image src={path} alt="icon" width={60} height={60} />
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

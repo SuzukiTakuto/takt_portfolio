@@ -39,11 +39,16 @@ const icon = {
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setIsLoading(true);
-    setTimeout(() => {
+    const lodingTimer = setTimeout(() => {
       setIsLoading(false);
     }, 3 * 1000);
+
+    return () => {
+      clearTimeout(lodingTimer);
+    };
   }, []);
   return (
     <>
