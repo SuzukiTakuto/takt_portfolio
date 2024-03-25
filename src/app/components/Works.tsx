@@ -51,6 +51,22 @@ const workItems = [
       "images/skill-icons/ts.svg",
     ],
   },
+  {
+    id: 4,
+    appName: "LINEトーク画面再現アプリ",
+    appImg: "/images/works-imgs/works-LINE_Preview.png",
+    description:
+      "LINEのトーク履歴のテキストデータからをトーク画面を再現するアプリです。",
+    style: "個人",
+    isReleased: true,
+    appUrl: "https://line-preview.vercel.app/",
+    gitHubUrl: "https://github.com/SuzukiTakuto/line-preview",
+    technologyStack: [
+      "images/skill-icons/next.svg",
+      "images/skill-icons/ts.svg",
+      "images/skill-icons/tailwind.svg",
+    ],
+  },
 ];
 
 function Works() {
