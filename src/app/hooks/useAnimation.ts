@@ -1,16 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
 import { useEffect } from "react";
-import { useSnapshot } from "valtio";
 import { useAnimations, useGLTF } from "@react-three/drei";
-import { AnimationNames } from "./params";
-import { modelState } from "./store";
+//import { AnimationNames } from "./params";
+//import { modelState } from "./store";
 
 export const useAnimation = () => {
-  const modelSnap = useSnapshot(modelState);
+  //const modelSnap = useSnapshot(modelState);
 
   const animationClips: THREE.AnimationClip[] = [];
-  AnimationNames.forEach((name) => {
+  /*AnimationNames.forEach((name) => {
     const { animations } = useGLTF(`/assets/animations/${name}.glb`);
     animationClips.push(...animations);
   });
@@ -32,5 +31,5 @@ export const useAnimation = () => {
     }
   }, [actions, modelSnap.animation, modelSnap.isPaused]);
 
-  return ref;
+  return ref;*/
 };
