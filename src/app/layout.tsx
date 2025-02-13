@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Takuto's portfolio",
-  description: "鈴木啄斗のポートフォリオサイト",
+  description: "鈴木啄斗のポートフォリオサイト"
 };
 
 export default function RootLayout({
