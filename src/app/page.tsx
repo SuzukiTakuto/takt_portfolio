@@ -6,8 +6,6 @@ import About from "./components/About";
 import Works from "./components/Works";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import TestBox from "./components/TestBox";
-import TerminalCanvas from "./components/TerminalCanvas";
 
 const variants = {
   center: {
