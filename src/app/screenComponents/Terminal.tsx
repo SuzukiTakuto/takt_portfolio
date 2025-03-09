@@ -142,6 +142,7 @@ function Terminal() {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("keydown", handleEnterKeyDown);
+      window.removeEventListener("touchstart", handleTap);
 
       if (rendererRef.current && mount.current) {
         mount.current.removeChild(rendererRef.current.domElement);
