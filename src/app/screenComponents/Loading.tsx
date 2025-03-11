@@ -37,7 +37,7 @@ function Loading() {
         />
       </svg>
       <p className="text-[#89B8BD] text-center text-3xl">
-        Welecome to Takuto&apos;s Portfolio!
+        Welcome to Takuto&apos;s Portfolio!
       </p>
     </div>
   );
