@@ -30,7 +30,10 @@ export default function HomePage() {
       <motion.div variants={variants} initial="center" animate="filled">
         <main className="flex flex-col min-h-screen bg-black">
           <Navbar />
-          <div className="container mt-40 mx-auto scroll-pt-10">
+          <div
+            className="container mt-40 mx-auto scroll-pt-10"
+            onClick={(e) => e.stopPropagation()}
+          >
             <About />
 
             <Works />
