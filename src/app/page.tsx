@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden h-screen">
+    <div className="relative overflow-hidden h-screen bg-black">
       {isLoading && (
         <div
           className={`absolute inset-0 z-10 ${
