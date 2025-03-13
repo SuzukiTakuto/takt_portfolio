@@ -121,7 +121,10 @@ const About = () => {
             {showIcons && (
               <div className="flex flex-wrap items-center gap-x-8">
                 {iconPath.map((path, index) => {
-                  const style = index == 3 ? "px-2 bg-white" : "py-5";
+                  const style =
+                    index == 3
+                      ? "bg-white rounded-full w-[62px] h-[62px] flex justify-center items-center"
+                      : "py-5";
                   return (
                     <motion.div
                       initial={{ scale: 0 }}

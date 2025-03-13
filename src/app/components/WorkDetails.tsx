@@ -100,7 +100,9 @@ const WorkDetails = ({
             <div className="flex flex-wrap items-center gap-x-8 pb-5">
               {technologyStack?.map((stack, index) => {
                 // stackの中に「next」が含まれるかどうかを判定
-                const style = stack.includes("next") ? "bg-white px-1" : "py-1";
+                const style = stack.includes("next")
+                  ? "bg-white rounded-full w-[52px] h-[52px] flex justify-center items-center"
+                  : "py-1";
                 return (
                   <div key={index} className={style}>
                     <Image src={stack} alt="icon" width={50} height={50} />
