@@ -7,12 +7,12 @@ const iconPath = [
   "images/skill-icons/html5.svg",
   "images/skill-icons/css.svg",
   "images/skill-icons/react.svg",
-  "images/skill-icons/react-native.svg",
   "images/skill-icons/next.svg",
   "images/skill-icons/js.svg",
   "images/skill-icons/ts.svg",
   "images/skill-icons/node.svg",
   "images/skill-icons/c++.svg",
+  "images/skill-icons/php.svg",
   "images/skill-icons/tailwind.svg",
   "images/skill-icons/docker.svg",
 ];
@@ -74,21 +74,24 @@ const About = () => {
 
             {showSkillIcons && (
               <div className="flex flex-wrap items-center gap-x-8">
-                {iconPath.map((path, index) => (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ rotate: 360, scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                    }}
-                    key={index}
-                    className="py-5"
-                  >
-                    <Image src={path} alt="icon" width={60} height={60} />
-                  </motion.div>
-                ))}
+                {iconPath.map((path, index) => {
+                  const style = index == 3 ? "px-2 bg-white" : "py-5";
+                  return (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ rotate: 360, scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                      }}
+                      key={index}
+                      className={style}
+                    >
+                      <Image src={path} alt="icon" width={60} height={60} />
+                    </motion.div>
+                  );
+                })}
               </div>
             )}
           </div>

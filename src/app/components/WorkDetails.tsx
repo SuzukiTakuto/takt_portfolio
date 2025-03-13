@@ -98,11 +98,15 @@ const WorkDetails = ({
               technology Stack {style !== "個人" && <span>(担当領域)</span>}
             </h3>
             <div className="flex flex-wrap items-center gap-x-8 pb-5">
-              {technologyStack?.map((stack, index) => (
-                <div key={index} className="py-1">
-                  <Image src={stack} alt="icon" width={50} height={50} />
-                </div>
-              ))}
+              {technologyStack?.map((stack, index) => {
+                // stackの中に「next」が含まれるかどうかを判定
+                const style = stack.includes("next") ? "bg-white px-1" : "py-1";
+                return (
+                  <div key={index} className={style}>
+                    <Image src={stack} alt="icon" width={50} height={50} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

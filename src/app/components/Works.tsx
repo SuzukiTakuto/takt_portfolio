@@ -31,8 +31,9 @@ const workItems = [
     appUrl: "https://apps.apple.com/jp/app/%E4%BD%95%E9%A3%9F/id6461529557",
     gitHubUrl: "https://github.com/SuzukiTakuto/Nanitabe",
     technologyStack: [
-      "images/skill-icons/react-native.svg",
+      "images/skill-icons/react.svg",
       "images/skill-icons/ts.svg",
+      "images/skill-icons/tailwind.svg",
     ],
   },
   {
@@ -47,7 +48,7 @@ const workItems = [
     appUrl: "配信予定",
     gitHubUrl: "https://github.com/jphacks/TK_2301",
     technologyStack: [
-      "images/skill-icons/react-native.svg",
+      "images/skill-icons/react.svg",
       "images/skill-icons/ts.svg",
     ],
   },
