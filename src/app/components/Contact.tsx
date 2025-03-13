@@ -19,7 +19,6 @@ const Contact = () => {
     fetch("/api/mail", {
       method: "POST",
       headers: {
-        Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -32,6 +31,9 @@ const Contact = () => {
         console.log("Response received");
         if (res.status === 200) {
           console.log("Response succeeded!");
+          setName("");
+          setEmail("");
+          setMsg("");
         } else {
           console.log(`Error: Status Code ${res.status}`);
         }
