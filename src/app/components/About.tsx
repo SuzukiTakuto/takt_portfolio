@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,10 +19,10 @@ const iconPath = [
 ];
 
 const About = () => {
-  const [showSkillIcons, setShowSkillIcons] = useState(false);
+  const [showIcons, setShowIcons] = useState(false);
   useEffect(() => {
     const mainContentsTimer = setTimeout(() => {
-      setShowSkillIcons(true);
+      setShowIcons(true);
     }, 1.5 * 1000);
 
     return () => {
@@ -65,14 +66,59 @@ const About = () => {
             鈴木啄斗
             <span className="lg:text-2xl text-sm ml-3">Suzuki Takuto</span>
           </h1>
-          <p className="py-5 px-7 md:px-0">
+          <p className="pt-5 px-7 md:px-0">
             芝浦工業大学大学院理工学研究科電気電子情報工学専攻の修士2年です。
             研究では主にトランスポート層周りのプロトコルについて考えています。個人的にWebフロントエンド、バックエンド、モバイルアプリ等の開発の勉強をしており、2025年の4月からモバイルアプリエンジニアとして働きます。
           </p>
+          {showIcons && (
+            <div className="social-links px-7 mt-2 mb-4 flex items-center md:px-0">
+              <Link href="https://github.com/SuzukiTakuto" target="_blank">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ rotate: 360, scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                  }}
+                  key="github"
+                  className="w-[40px] h-[40px] mr-1 bg-white rounded-full relative"
+                >
+                  <Image
+                    className="absolute top-[-0.5px] right-0"
+                    src="images/github.svg"
+                    alt="icon"
+                    width={40}
+                    height={40}
+                  />
+                </motion.div>
+              </Link>
+              <Link href="https://zenn.dev/ttaktt" target="_blank">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ rotate: 360, scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                  }}
+                  key="zenn"
+                >
+                  <Image
+                    src="images/zenn.svg"
+                    alt="icon"
+                    width={35}
+                    height={35}
+                  />
+                </motion.div>
+              </Link>
+            </div>
+          )}
+
           <div className="px-7 md:px-0">
             <h2 className="text-3xl font-bold">skills</h2>
 
-            {showSkillIcons && (
+            {showIcons && (
               <div className="flex flex-wrap items-center gap-x-8">
                 {iconPath.map((path, index) => {
                   const style = index == 3 ? "px-2 bg-white" : "py-5";
