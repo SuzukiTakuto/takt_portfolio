@@ -1,40 +1,39 @@
 import { createTransport } from "nodemailer";
 import { NextResponse, type NextRequest } from "next/server";
+import { google } from "googleapis";
 
 export async function POST(req: NextRequest) {
-  const transporter = createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      type: "OAuth2",
-      user: process.env.MAIL_USER,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
-    },
-  });
-
-  const { name, email, msg } = await req.json();
-
   try {
-    transporter.sendMail({
-      from: "clax.tkt@gmail.com",
-      to: email,
-      subject: "お問い合わせ受け付けました",
-      text: `
-        名前
-        ${name}
-        
-        メールアドレス
-        ${email}
-        
-        お問い合わせ内容
-        ${msg}
-        `,
+    const { name, email, msg } = await req.json();
+
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.CLIENT_EMAIL,
+        private_key: process.env.PRIVATE_KEY?.replace(/\\n/g, "\n"),
+      },
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
+
+    const sheets = google.sheets({ version: "v4", auth });
+
+    // タイムスタンプ取得
+    const now = new Date();
+    const timestamp = now.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" });
+
+    // スプレッドシートに書き込み
+    const values = [[timestamp, name, email, msg]];
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.SPREADSHEET_ID,
+      range: "シート1!A:D",
+      valueInputOption: "USER_ENTERED",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: {
+        values,
+      },
+    });
+
     return NextResponse.json({ message: "Success!", status: 200 });
-  } catch (err) {
-    return NextResponse.json({ message: "Failed!", status: 500 });
+  } catch (err: any) {
+    return NextResponse.json({ message: err.message, status: 500 });
   }
 }
