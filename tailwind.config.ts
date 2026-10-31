@@ -14,6 +14,15 @@ const config: Config = {
           "2xl": "1280px",
         },
       },
+      fontFamily: {
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace",
+        ],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -22,6 +31,7 @@ const config: Config = {
       animation: {
         "fade-in":
           "fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both",
+        blink: "blink 1.1s step-end infinite",
       },
       keyframes: {
         "fade-in": {
@@ -30,6 +40,14 @@ const config: Config = {
           },
           to: {
             opacity: "1",
+          },
+        },
+        blink: {
+          "0%, 49%": {
+            opacity: "1",
+          },
+          "50%, 100%": {
+            opacity: "0",
           },
         },
       },

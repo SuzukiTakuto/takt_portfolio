@@ -9,8 +9,15 @@ type WorksItemProps = {
 const WorksItem = ({ appName, appImg }: WorksItemProps) => {
   return (
     <div className="border border-[#89B8BD] cursor-pointer hover:opacity-70 mb-9 max-w-sm">
+      {/* 作品ごとに縦横比が違うため、枠を固定して object-contain で収める */}
       <div className="w-[312px] h-[168px] flex justify-center items-center px-7 py-3">
-        <Image src={appImg} alt="work-img" width={256} height={144} />
+        <Image
+          src={appImg}
+          alt="work-img"
+          width={256}
+          height={144}
+          className="h-[144px] w-[256px] object-contain"
+        />
       </div>
       <h3 className="text-center py-3">{appName}</h3>
     </div>

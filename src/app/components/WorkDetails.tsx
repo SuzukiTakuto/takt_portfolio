@@ -46,8 +46,15 @@ const WorkDetails = ({
           </button>
         </div>
         <div className="w-5/6 overflow-y-auto hidden-scrollbar">
-          <div className="flex justify-center pt-5">
-            <Image src={appImg} alt="work-img" width={289} height={175} />
+          {/* パネル幅が固定なので fill + object-contain で縦横比を保つ */}
+          <div className="relative h-[175px] w-full pt-5">
+            <Image
+              src={appImg}
+              alt="work-img"
+              fill
+              sizes="266px"
+              className="object-contain"
+            />
           </div>
           <h3 className="pt-3 border-b-2 border-[#89B8BD] font-bold">
             app name
@@ -97,18 +104,15 @@ const WorkDetails = ({
             <h3 className="font-bold">
               technology Stack {style !== "個人" && <span>(担当領域)</span>}
             </h3>
-            <div className="flex flex-wrap items-center gap-x-8 pb-5">
-              {technologyStack?.map((stack, index) => {
-                // stackの中に「next」が含まれるかどうかを判定
-                const style = stack.includes("next")
-                  ? "bg-white rounded-full w-[52px] h-[52px] flex justify-center items-center"
-                  : "py-1";
-                return (
-                  <div key={index} className={style}>
-                    <Image src={stack} alt="icon" width={50} height={50} />
-                  </div>
-                );
-              })}
+            <div className="flex flex-wrap gap-2 pb-5 pt-2">
+              {technologyStack?.map((stack) => (
+                <span
+                  key={stack}
+                  className="font-mono text-[11px] border border-[#89B8BD]/60 text-[#D6E9EB] px-2 py-1"
+                >
+                  {stack}
+                </span>
+              ))}
             </div>
           </div>
         </div>

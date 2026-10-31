@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Loading from "./screenComponents/Loading";
-import MainScreen from "./screenComponents/MainScreen";
 import Terminal from "./screenComponents/Terminal";
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
   const terminalRef = useRef(null);
 
   useEffect(() => {
-    setIsLoading(true);
     const loadingTimer = setTimeout(() => {
       setShowAnimation(true);
 

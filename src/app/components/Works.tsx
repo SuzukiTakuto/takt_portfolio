@@ -14,11 +14,7 @@ const workItems = [
     isReleased: true,
     appUrl: "https://takt-portfolio.vercel.app/",
     gitHubUrl: "https://github.com/SuzukiTakuto/takt_portfolio",
-    technologyStack: [
-      "images/skill-icons/next.svg",
-      "images/skill-icons/ts.svg",
-      "images/skill-icons/tailwind.svg",
-    ],
+    technologyStack: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     id: 2,
@@ -30,11 +26,7 @@ const workItems = [
     isReleased: true,
     appUrl: "https://apps.apple.com/jp/app/%E4%BD%95%E9%A3%9F/id6461529557",
     gitHubUrl: "https://github.com/SuzukiTakuto/Nanitabe",
-    technologyStack: [
-      "images/skill-icons/react.svg",
-      "images/skill-icons/ts.svg",
-      "images/skill-icons/tailwind.svg",
-    ],
+    technologyStack: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
     id: 3,
@@ -47,10 +39,7 @@ const workItems = [
     isReleased: false,
     appUrl: "配信予定",
     gitHubUrl: "https://github.com/jphacks/TK_2301",
-    technologyStack: [
-      "images/skill-icons/react.svg",
-      "images/skill-icons/ts.svg",
-    ],
+    technologyStack: ["React", "TypeScript"],
   },
   {
     id: 4,
@@ -60,13 +49,20 @@ const workItems = [
       "LINEのトーク履歴のテキストデータからをトーク画面を再現するアプリです。",
     style: "個人",
     isReleased: true,
+    appUrl: "配信予定",
+    gitHubUrl: "",
+    technologyStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 5,
+    appName: "Libo",
+    appImg: "/images/works-imgs/works-libo.png",
+    description: "スマホで手軽にジャズリックを管理できるアプリ",
+    style: "個人",
+    isReleased: false,
     appUrl: "https://line-preview.vercel.app/",
     gitHubUrl: "https://github.com/SuzukiTakuto/line-preview",
-    technologyStack: [
-      "images/skill-icons/next.svg",
-      "images/skill-icons/ts.svg",
-      "images/skill-icons/tailwind.svg",
-    ],
+    technologyStack: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
 ];
 

@@ -2,21 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-
-const iconPath = [
-  "images/skill-icons/html5.svg",
-  "images/skill-icons/css.svg",
-  "images/skill-icons/react.svg",
-  "images/skill-icons/next.svg",
-  "images/skill-icons/js.svg",
-  "images/skill-icons/ts.svg",
-  "images/skill-icons/node.svg",
-  "images/skill-icons/c++.svg",
-  "images/skill-icons/php.svg",
-  "images/skill-icons/tailwind.svg",
-  "images/skill-icons/docker.svg",
-];
+import { motion } from "framer-motion";
+import SkillTerminal from "./SkillTerminal";
 
 const About = () => {
   const [showIcons, setShowIcons] = useState(false);
@@ -44,19 +31,22 @@ const About = () => {
           transition={{ duration: 2 }}
           className="col-span-4"
         >
+          {/* width/height は実寸(309x646)。表示サイズは CSS 側で指定する */}
           <Image
             src="/images/profile-img.png"
             alt="profile"
-            width={230}
-            height={230}
-            className="hidden md:block"
+            width={309}
+            height={646}
+            priority
+            className="hidden h-auto w-[230px] md:block"
           />
           <div className="flex justify-center md:hidden">
             <Image
               src="/images/profile-img-sm.png"
               alt="profile"
               width={120}
-              height={120}
+              height={156}
+              priority
             />
           </div>
         </motion.div>
@@ -66,10 +56,6 @@ const About = () => {
             鈴木啄斗
             <span className="lg:text-2xl text-sm ml-3">Suzuki Takuto</span>
           </h1>
-          <p className="pt-5 px-7 md:px-0">
-            芝浦工業大学大学院理工学研究科電気電子情報工学専攻の修士2年です。
-            研究では主にトランスポート層周りのプロトコルについて考えています。個人的にWebフロントエンド、バックエンド、モバイルアプリ等の開発の勉強をしており、2025年の4月からモバイルアプリエンジニアとして働きます。
-          </p>
           {showIcons && (
             <div className="social-links px-7 mt-2 mb-4 flex items-center md:px-0">
               <Link href="https://github.com/SuzukiTakuto" target="_blank">
@@ -115,32 +101,12 @@ const About = () => {
             </div>
           )}
 
-          <div className="px-7 md:px-0">
+          <div className="px-7 pt-2 md:px-0">
             <h2 className="text-3xl font-bold">skills</h2>
 
             {showIcons && (
-              <div className="flex flex-wrap items-center gap-x-8">
-                {iconPath.map((path, index) => {
-                  const style =
-                    index == 3
-                      ? "bg-white rounded-full w-[62px] h-[62px] flex justify-center items-center"
-                      : "py-5";
-                  return (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ rotate: 360, scale: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 20,
-                      }}
-                      key={index}
-                      className={style}
-                    >
-                      <Image src={path} alt="icon" width={60} height={60} />
-                    </motion.div>
-                  );
-                })}
+              <div className="mt-4">
+                <SkillTerminal />
               </div>
             )}
           </div>

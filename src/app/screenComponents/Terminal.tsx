@@ -59,9 +59,10 @@ function Terminal() {
     ambientLight.intensity = 30;
     scene.add(ambientLight);
 
+    // 正面やや左上から当てて、視線方向にハイライトが返るようにする
     const directionalLight = new THREE.DirectionalLight(0xffffff);
     directionalLight.intensity = 100;
-    directionalLight.position.set(1, 3, 1);
+    directionalLight.position.set(-1.6, 2.2, 2.6);
     scene.add(directionalLight);
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -83,6 +84,7 @@ function Terminal() {
         materials.preload();
         objLoader.setMaterials(materials);
         objLoader.load(`models/terminal${objectType}.obj`, (object) => {
+          addGloss(object);
           scene.add(object);
           object.scale.set(150, 150, 150);
           object.rotation.y = Math.PI / 2;
@@ -90,6 +92,27 @@ function Terminal() {
           object.position.y = 50;
           models[objectType - 1] = object;
           object.visible = false;
+        });
+      });
+    }
+
+    // MTL 側が Ks 0 / illum 1（拡散のみ）なので、そのままでは光源を動かしても
+    // 鏡面反射の項が常にゼロになる。読み込み後に光沢成分を補う。
+    function addGloss(object: THREE.Object3D) {
+      object.traverse((child) => {
+        if (!(child instanceof THREE.Mesh)) return;
+
+        const materials = Array.isArray(child.material)
+          ? child.material
+          : [child.material];
+
+        materials.forEach((material) => {
+          if (!(material instanceof THREE.MeshPhongMaterial)) return;
+          // directionalLight の intensity 100 が鏡面項にも掛かるため、
+          // specular はごく小さい値にしないと白飛びする
+          material.specular.setHex(0x030304);
+          material.shininess = 100;
+          material.needsUpdate = true;
         });
       });
     }

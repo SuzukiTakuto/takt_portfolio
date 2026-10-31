@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
 import Works from "../components/Works";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-const variants = {
+const variants: Variants = {
   center: {
     clipPath: "inset(50% round 50%)",
     transition: {

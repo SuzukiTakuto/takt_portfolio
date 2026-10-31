@@ -1,4 +1,3 @@
-import { createTransport } from "nodemailer";
 import { NextResponse, type NextRequest } from "next/server";
 import { google } from "googleapis";
 
